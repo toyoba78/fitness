@@ -1,4 +1,4 @@
-import LibraryCard from "../Shared/LibraryCard";
+import LibraryCard from "../shared/LibraryCard";
 
 const getLibrarys = async () => {
   const response = await fetch(

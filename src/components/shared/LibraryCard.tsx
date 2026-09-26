@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { ILibrary } from "@/types/Librarys.type";
 
@@ -74,9 +75,11 @@ const LibraryCard = ({ libraryData }: { libraryData: ILibrary[] }) => {
             <div className="flex justify-between items-center mt-5">
               <div>⭐ {library.rating}</div>
 
-              <button className="bg-black text-white px-4 py-2 rounded-lg">
-                View Details
-              </button>
+              <Link
+                  href={`/workout/${library.id}`}
+                  className="bg-black text-white px-4 py-2 rounded-lg">
+                    View Details
+                </Link>
             </div>
 
           </div>
