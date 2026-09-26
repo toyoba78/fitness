@@ -9,6 +9,7 @@ const MyPlan = () => {
   const {
     plan,
     saved,
+    loading,
     removeFromPlan,
     removeSaved,
   } = usePlan();
@@ -17,15 +18,16 @@ const MyPlan = () => {
 
   const currentList = activeTab === "today" ? plan : saved;
 
-    const totalMinutes = currentList.reduce(
-   (total, workout) => total + workout.duration,
-   0
+  const totalMinutes = currentList.reduce(
+    (total, workout) => total + workout.duration,
+    0
   );
 
   const totalCalories = currentList.reduce(
-  (total, workout) => total + workout.caloriesBurned,
+    (total, workout) => total + workout.caloriesBurned,
     0
   );
+
   return (
     <main className="min-h-screen bg-[#0d0f12] text-white px-4 md:px-6 lg:px-8 py-8">
       <div className="max-w-6xl mx-auto">
@@ -51,7 +53,7 @@ const MyPlan = () => {
             </p>
 
             <p className="text-xl md:text-2xl font-bold text-[#ccff00] mt-2">
-              {plan.length}
+              {currentList.length}
             </p>
           </div>
 
@@ -107,8 +109,19 @@ const MyPlan = () => {
         </div>
 
         {/* Workout List */}
-        {currentList.length === 0 ? (
 
+        {loading ? (
+
+          // Loading State
+          <div className="min-h-[300px] bg-[#101318] border border-[#20242c] rounded-lg flex items-center justify-center">
+            <p className="text-gray-400 text-sm">
+              Loading workouts...
+            </p>
+          </div>
+
+        ) : currentList.length === 0 ? (
+
+          // Empty State
           <div className="min-h-[300px] bg-[#101318] border border-[#20242c] rounded-lg flex flex-col items-center justify-center text-center px-4">
 
             <h2 className="text-sm md:text-base font-bold uppercase">
@@ -130,6 +143,7 @@ const MyPlan = () => {
 
         ) : (
 
+          // Workout List
           <div className="space-y-3">
 
             {currentList.map((workout) => (
