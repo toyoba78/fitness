@@ -6,23 +6,26 @@ import { useState } from "react";
 import { usePlan } from "@/context/planContext";
 
 const MyPlan = () => {
-  const { plan, saved, removeFromPlan } = usePlan();
-  console.log("MY PLAN DATA:", plan);
+  const {
+    plan,
+    saved,
+    removeFromPlan,
+    removeSaved,
+  } = usePlan();
 
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
 
-  const totalMinutes = plan.reduce(
-    (total, workout) => total + workout.duration,
-    0
-  );
-
-  const totalCalories = plan.reduce(
-    (total, workout) => total + workout.caloriesBurned,
-    0
-  );
-
   const currentList = activeTab === "today" ? plan : saved;
 
+    const totalMinutes = currentList.reduce(
+   (total, workout) => total + workout.duration,
+   0
+  );
+
+  const totalCalories = currentList.reduce(
+  (total, workout) => total + workout.caloriesBurned,
+    0
+  );
   return (
     <main className="min-h-screen bg-[#0d0f12] text-white px-4 md:px-6 lg:px-8 py-8">
       <div className="max-w-6xl mx-auto">
@@ -41,6 +44,7 @@ const MyPlan = () => {
         {/* Metrics */}
         <div className="grid grid-cols-3 gap-3 md:gap-5 mb-5">
 
+          {/* Exercises */}
           <div className="bg-[#15181e] border border-[#20242c] rounded-lg px-4 py-4">
             <p className="text-[10px] md:text-xs text-gray-500 uppercase">
               Exercises
@@ -51,6 +55,7 @@ const MyPlan = () => {
             </p>
           </div>
 
+          {/* Minutes */}
           <div className="bg-[#15181e] border border-[#20242c] rounded-lg px-4 py-4">
             <p className="text-[10px] md:text-xs text-gray-500 uppercase">
               Minutes
@@ -61,6 +66,7 @@ const MyPlan = () => {
             </p>
           </div>
 
+          {/* Calories */}
           <div className="bg-[#15181e] border border-[#20242c] rounded-lg px-4 py-4">
             <p className="text-[10px] md:text-xs text-gray-500 uppercase">
               Calories
@@ -171,13 +177,24 @@ const MyPlan = () => {
                     View Details
                   </Link>
 
-                  {activeTab === "today" && (
+                  {activeTab === "today" ? (
+
                     <button
                       onClick={() => removeFromPlan(workout.id)}
                       className="border border-red-500 text-red-400 px-3 py-2 rounded-md text-xs"
                     >
                       Remove
                     </button>
+
+                  ) : (
+
+                    <button
+                      onClick={() => removeSaved(workout.id)}
+                      className="border border-red-500 text-red-400 px-3 py-2 rounded-md text-xs"
+                    >
+                      Remove
+                    </button>
+
                   )}
 
                 </div>
