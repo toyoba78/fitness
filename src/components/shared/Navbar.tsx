@@ -15,7 +15,7 @@ const Navbar = () => {
 
         <div className="navbar min-h-[70px] px-0">
 
-          {/* Left - Logo */}
+          
           <div className="navbar-start gap-2">
 
             <Link href="/" className="flex items-center gap-2">
