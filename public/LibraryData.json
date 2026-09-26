@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "name": "Barbell Bench Press",
+    "image": "https://img.magnific.com/free-photo/portrait-anime-character-doing-fitness-exercising_23-2151666664.jpg?w=740",
+    "muscleGroups": ["Chest", "Arms"],
+    "equipment": "Barbell, Bench",
+    "difficulty": "Intermediate",
+    "duration": 25,
+    "caloriesBurned": 180,
+    "sets": 4,
+    "reps": "6-8",
+    "rating": 4.8,
+    "description": "Builds chest and triceps strength.",
+    "instructions": [
+      "Lie on the bench.",
+      "Lower the bar to your chest.",
+      "Press the bar up.",
+      "Keep your back stable."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Pull-Up",
+    "image": "https://img.magnific.com/free-photo/3d-cartoon-fitness-man_23-2151691400.jpg?w=740",
+    "muscleGroups": ["Back", "Arms"],
+    "equipment": "Pull-up Bar",
+    "difficulty": "Intermediate",
+    "duration": 15,
+    "caloriesBurned": 120,
+    "sets": 4,
+    "reps": "6-10",
+    "rating": 4.7,
+    "description": "Builds back, biceps and grip strength.",
+    "instructions": [
+      "Hang from the bar.",
+      "Pull your chest toward the bar.",
+      "Pause at the top.",
+      "Lower down slowly."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Back Squat",
+    "image": "https://img.magnific.com/free-photo/3d-cartoon-fitness-man_23-2151691401.jpg?w=740",
+    "muscleGroups": ["Legs", "Core"],
+    "equipment": "Barbell, Rack",
+    "difficulty": "Advanced",
+    "duration": 30,
+    "caloriesBurned": 240,
+    "sets": 5,
+    "reps": "5-8",
+    "rating": 4.9,
+    "description": "Builds legs, glutes and core strength.",
+    "instructions": [
+      "Place the bar on your shoulders.",
+      "Squat down slowly.",
+      "Keep knees over your toes.",
+      "Drive up through your feet."
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Overhead Press",
+    "image": "https://img.magnific.com/free-photo/portrait-anime-character-doing-fitness-exercising_23-2151666703.jpg?w=740",
+    "muscleGroups": ["Shoulders", "Arms"],
+    "equipment": "Barbell",
+    "difficulty": "Intermediate",
+    "duration": 20,
+    "caloriesBurned": 150,
+    "sets": 4,
+    "reps": "6-8",
+    "rating": 4.6,
+    "description": "Strengthens shoulders and triceps.",
+    "instructions": [
+      "Hold the bar at shoulder level.",
+      "Brace your core.",
+      "Press the bar overhead.",
+      "Lower it with control."
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Dumbbell Bicep Curl",
+    "image": "https://img.magnific.com/free-photo/portrait-anime-character-doing-fitness-exercising_23-2151666702.jpg?w=740",
+    "muscleGroups": ["Arms"],
+    "equipment": "Dumbbells",
+    "difficulty": "Beginner",
+    "duration": 12,
+    "caloriesBurned": 80,
+    "sets": 3,
+    "reps": "10-12",
+    "rating": 4.3,
+    "description": "Builds biceps strength.",
+    "instructions": [
+      "Stand with dumbbells at your sides.",
+      "Curl the weights up.",
+      "Squeeze your biceps.",
+      "Lower slowly."
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Hollow-Body Plank",
+    "image": "https://img.magnific.com/free-photo/3d-cartoon-fitness-man_23-2151691489.jpg?w=740",
+    "muscleGroups": ["Core"],
+    "equipment": "Bodyweight",
+    "difficulty": "Beginner",
+    "duration": 10,
+    "caloriesBurned": 60,
+    "sets": 3,
+    "reps": "30-45s",
+    "rating": 4.4,
+    "description": "Strengthens the core and improves stability.",
+    "instructions": [
+      "Keep elbows under shoulders.",
+      "Tighten your core.",
+      "Keep your back flat.",
+      "Hold for the required time."
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Burpee",
+    "image": "https://img.magnific.com/free-photo/3d-cartoon-business-character_1048-16544.jpg?w=740",
+    "muscleGroups": ["Full Body"],
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "duration": 12,
+    "caloriesBurned": 160,
+    "sets": 4,
+    "reps": "8-12",
+    "rating": 4.2,
+    "description": "A full-body exercise for strength and cardio.",
+    "instructions": [
+      "Squat down.",
+      "Kick your feet back.",
+      "Return your feet forward.",
+      "Jump up."
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Conventional Deadlift",
+    "image": "https://img.magnific.com/free-photo/portrait-anime-character-doing-fitness-exercising_23-2151666704.jpg?w=740",
+    "muscleGroups": ["Back", "Legs"],
+    "equipment": "Barbell",
+    "difficulty": "Advanced",
+    "duration": 28,
+    "caloriesBurned": 260,
+    "sets": 4,
+    "reps": "3-5",
+    "rating": 4.9,
+    "description": "Builds back, legs, grip and overall strength.",
+    "instructions": [
+      "Stand with the bar over mid-foot.",
+      "Keep your back flat.",
+      "Lift by pushing through the floor.",
+      "Lower the bar with control."
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Push-Up",
+    "image": "https://img.magnific.com/free-photo/3d-cartoon-fitness-man_23-2151691429.jpg?w=740",
+    "muscleGroups": ["Chest", "Arms", "Core"],
+    "equipment": "Bodyweight",
+    "difficulty": "Beginner",
+    "duration": 10,
+    "caloriesBurned": 90,
+    "sets": 3,
+    "reps": "12-15",
+    "rating": 4.5,
+    "description": "Builds chest, triceps and core strength.",
+    "instructions": [
+      "Place hands on the floor.",
+      "Keep your body straight.",
+      "Lower your chest.",
+      "Push back up."
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Walking Lunge",
+    "image": "https://img.magnific.com/free-photo/portrait-anime-character-doing-fitness-exercising_23-2151666701.jpg?w=740",
+    "muscleGroups": ["Legs"],
+    "equipment": "Dumbbells (optional)",
+    "difficulty": "Beginner",
+    "duration": 18,
+    "caloriesBurned": 170,
+    "sets": 3,
+    "reps": "10-12/leg",
+    "rating": 4.4,
+    "description": "Builds legs, glutes and balance.",
+    "instructions": [
+      "Step forward.",
+      "Lower your back knee.",
+      "Push through the front foot.",
+      "Repeat with the other leg."
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Russian Twist",
+    "image": "https://img.magnific.com/free-photo/3d-cartoon-fitness-man_23-2151691487.jpg?w=740",
+    "muscleGroups": ["Core"],
+    "equipment": "Medicine Ball",
+    "difficulty": "Beginner",
+    "duration": 8,
+    "caloriesBurned": 70,
+    "sets": 3,
+    "reps": "16-20",
+    "rating": 4.1,
+    "description": "Strengthens the core and obliques.",
+    "instructions": [
+      "Sit and lean back slightly.",
+      "Hold the ball.",
+      "Rotate to one side.",
+      "Rotate to the other side."
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Kettlebell Swing",
+    "image": "https://img.magnific.com/free-photo/3d-cartoon-fitness-man_23-2151691505.jpg?w=740",
+    "muscleGroups": ["Full Body", "Shoulders"],
+    "equipment": "Kettlebell",
+    "difficulty": "Intermediate",
+    "duration": 16,
+    "caloriesBurned": 200,
+    "sets": 5,
+    "reps": "12-15",
+    "rating": 4.7,
+    "description": "Builds hip power, grip and conditioning.",
+    "instructions": [
+      "Hinge your hips back.",
+      "Swing the kettlebell forward.",
+      "Keep your arms relaxed.",
+      "Control the kettlebell back."
+    ]
+  }
+]

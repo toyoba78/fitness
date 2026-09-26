@@ -8,8 +8,8 @@ const Banner = () => {
             <div>
                 <p className='text-emerald-300'>WORKOUT LIBRARY</p>
             <h2 className='font-bold text-3xl'> TRAIN WITH INTENT. LOG <br />EVERY SET.</h2>
-            <p className='text-gray-500'>
-                FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today's plan, and watch the week's work add up.
+            <p className='text-gray-500 space-y-4'>
+                FitLog is a dark, no-nonsense gym companion: pick a lift, lock it <br /> into today's plan, and watch the week's work add up.
             </p>
             <button className="btn btn-accent">BROWSE WORKOUTS</button>
             </div>
