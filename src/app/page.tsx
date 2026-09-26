@@ -1,13 +1,14 @@
-import Image from "next/image";
 
-export default function Home() {
+
+import Banner from '@/components/homepage/Banner';
+import React from 'react';
+
+const page = () => {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main >
-         
-          
-        
-      </main>
+    <div>
+      <Banner />
     </div>
   );
-}
+};
+
+export default page;
