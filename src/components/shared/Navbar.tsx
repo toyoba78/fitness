@@ -11,7 +11,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[#151b23] border-b border-[#242b35]">
+    <nav className="">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
 
        
