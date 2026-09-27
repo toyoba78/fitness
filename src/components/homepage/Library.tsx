@@ -3,10 +3,10 @@ import LibraryContent from "./LibraryContent";
 const getLibrarys = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3000/LibraryData.json",
-      {
-        cache: "no-store",
-      }
+  "https://api.api-store.workers.dev/api/fitlog",
+  {
+    cache: "no-store",
+  }
     );
 
     if (!response.ok) {
@@ -29,6 +29,7 @@ const Library = async () => {
   if (!libraryData) {
     return (
       <section className="container mx-auto my-[70px] px-4">
+        
         <div className="min-h-[300px] bg-[#101318] border border-[#20242c] rounded-lg flex flex-col items-center justify-center text-center">
           <h2 className="text-xl font-bold text-white">
             Unable to load workouts

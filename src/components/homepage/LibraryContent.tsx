@@ -42,7 +42,6 @@ const LibraryContent = ({ libraryData }: LibraryContentProps) => {
             <option value="rating">Sort By: Rating</option>
           </select>
 
-          {/* Chevron */}
           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
             ▼
           </span>

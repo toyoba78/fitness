@@ -7,10 +7,12 @@ interface PlanContextType {
   plan: ILibrary[];
   saved: ILibrary[];
   loading: boolean;
+  doneIds: number[];
   addToPlan: (workout: ILibrary) => void;
   removeFromPlan: (id: number) => void;
   saveWorkout: (workout: ILibrary) => void;
   removeSaved: (id: number) => void;
+  markAsDone: (id: number) => void;
   toast: string;
 }
 
@@ -23,12 +25,14 @@ export const PlanProvider = ({
 }) => {
   const [plan, setPlan] = useState<ILibrary[]>([]);
   const [saved, setSaved] = useState<ILibrary[]>([]);
+  const [doneIds, setDoneIds] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
   const [toast, setToast] = useState("");
 
   useEffect(() => {
     const savedPlan = localStorage.getItem("fitlog-plan");
     const savedWorkouts = localStorage.getItem("fitlog-saved");
+    const savedDoneIds = localStorage.getItem("fitlog-done");
 
     if (savedPlan) {
       setPlan(JSON.parse(savedPlan));
@@ -36,6 +40,10 @@ export const PlanProvider = ({
 
     if (savedWorkouts) {
       setSaved(JSON.parse(savedWorkouts));
+    }
+
+    if (savedDoneIds) {
+      setDoneIds(JSON.parse(savedDoneIds));
     }
 
     setLoading(false);
@@ -48,6 +56,10 @@ export const PlanProvider = ({
   useEffect(() => {
     localStorage.setItem("fitlog-saved", JSON.stringify(saved));
   }, [saved]);
+
+  useEffect(() => {
+    localStorage.setItem("fitlog-done", JSON.stringify(doneIds));
+  }, [doneIds]);
 
   const showToast = (message: string) => {
     setToast(message);
@@ -74,6 +86,9 @@ export const PlanProvider = ({
 
   const removeFromPlan = (id: number) => {
     setPlan((prev) => prev.filter((item) => item.id !== id));
+
+    setDoneIds((prev) => prev.filter((doneId) => doneId !== id));
+
     showToast("Removed from today's plan.");
   };
 
@@ -92,16 +107,28 @@ export const PlanProvider = ({
     showToast("Removed from saved.");
   };
 
+  const markAsDone = (id: number) => {
+    if (doneIds.includes(id)) {
+      showToast("Workout is already marked as done.");
+      return;
+    }
+
+    setDoneIds((prev) => [...prev, id]);
+    showToast("Workout marked as done!");
+  };
+
   return (
     <PlanContext.Provider
       value={{
         plan,
         saved,
         loading,
+        doneIds,
         addToPlan,
         removeFromPlan,
         saveWorkout,
         removeSaved,
+        markAsDone,
         toast,
       }}
     >

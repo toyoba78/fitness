@@ -8,13 +8,11 @@ interface WorkoutDetailsProps {
 const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
   const { id } = await params;
 
-  let libraryData;
+  let workout;
 
   try {
     const response = await fetch(
-      `${
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
-      }/LibraryData.json`,
+      `https://api.api-store.workers.dev/api/fitlog/${id}`,
       {
         cache: "no-store",
       }
@@ -24,7 +22,7 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
       throw new Error("Failed to load workout data");
     }
 
-    libraryData = await response.json();
+    workout = await response.json();
   } catch (error) {
     console.error("Workout data error:", error);
 
@@ -46,10 +44,6 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
       </main>
     );
   }
-
-  const workout = libraryData.find(
-    (item: { id: number }) => item.id === Number(id)
-  );
 
   if (!workout) {
     return (
