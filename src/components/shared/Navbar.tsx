@@ -3,21 +3,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import logo from "@/assets/logo.png";
 import { usePlan } from "@/context/planContext";
 
 const Navbar = () => {
   const { plan, saved } = usePlan();
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isHome = pathname === "/";
+  const isMyPlan = pathname === "/my-plan";
 
   return (
     <nav className="">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
 
-       
+        {/* Navbar */}
         <div className="min-h-[70px] flex items-center justify-between">
 
-          {/* Mobile  */}
+          {/* Left side */}
           <div className="flex items-center gap-3">
 
             {/* Hamburger */}
@@ -29,7 +34,7 @@ const Navbar = () => {
               {menuOpen ? "✕" : "☰"}
             </button>
 
-            
+            {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <Image
                 src={logo}
@@ -46,23 +51,33 @@ const Navbar = () => {
 
           </div>
 
-          
+          {/* Center - Navigation */}
           <div className="hidden md:flex">
             <ul className="flex items-center gap-6 lg:gap-8">
 
+              {/* Workouts */}
               <li>
                 <Link
                   href="/"
-                  className="text-sm text-white hover:text-[#ccff00] transition"
+                  className={`text-sm transition ${
+                    isHome
+                      ? "text-[#ccff00] font-bold"
+                      : "text-white hover:text-[#ccff00]"
+                  }`}
                 >
                   Workouts
                 </Link>
               </li>
 
+              {/* My Plan */}
               <li>
                 <Link
                   href="/my-plan"
-                  className="text-sm text-white hover:text-[#ccff00] transition"
+                  className={`text-sm transition ${
+                    isMyPlan
+                      ? "text-[#ccff00] font-bold"
+                      : "text-white hover:text-[#ccff00]"
+                  }`}
                 >
                   My Plan
                 </Link>
@@ -71,22 +86,24 @@ const Navbar = () => {
             </ul>
           </div>
 
-          
+          {/* Right side - Counters */}
           <div className="flex items-center gap-2">
 
+            {/* Plan */}
             <Link
               href="/my-plan"
-              className="border border-[#2a313b] bg-[#11161c] text-white px-3 sm:px-4 py-2 rounded-md text-[11px] sm:text-xs font-semibold hover:border-[#ccff00] transition"
+              className="bg-[#ccff00] text-black px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-bold hover:bg-[#b8e600] transition"
             >
               Plan{" "}
-              <span className="text-[#ccff00]">
+              <span>
                 {plan.length}
               </span>
             </Link>
 
+            {/* Saved */}
             <Link
               href="/my-plan"
-              className="border border-[#2a313b] bg-[#11161c] text-white px-3 sm:px-4 py-2 rounded-md text-[11px] sm:text-xs font-semibold hover:border-[#ccff00] transition"
+              className="border border-[#ccff00] text-white px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-semibold hover:bg-[#ccff00] hover:text-black transition"
             >
               Saved{" "}
               <span className="text-[#ccff00]">
@@ -104,21 +121,31 @@ const Navbar = () => {
 
             <ul className="flex flex-col gap-3">
 
+              {/* Mobile Workouts */}
               <li>
                 <Link
                   href="/"
                   onClick={() => setMenuOpen(false)}
-                  className="block text-sm text-white hover:text-[#ccff00] transition py-2"
+                  className={`block text-sm transition py-2 ${
+                    isHome
+                      ? "text-[#ccff00] font-bold"
+                      : "text-white hover:text-[#ccff00]"
+                  }`}
                 >
                   Workouts
                 </Link>
               </li>
 
+              {/* Mobile My Plan */}
               <li>
                 <Link
                   href="/my-plan"
                   onClick={() => setMenuOpen(false)}
-                  className="block text-sm text-white hover:text-[#ccff00] transition py-2"
+                  className={`block text-sm transition py-2 ${
+                    isMyPlan
+                      ? "text-[#ccff00] font-bold"
+                      : "text-white hover:text-[#ccff00]"
+                  }`}
                 >
                   My Plan
                 </Link>
@@ -135,4 +162,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

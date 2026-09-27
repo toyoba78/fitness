@@ -1,8 +1,6 @@
 import Image from "next/image";
 import WorkoutActions from "@/components/shared/WorkoutActions";
 
-
-
 interface WorkoutDetailsProps {
   params: Promise<{ id: string }>;
 }
@@ -10,16 +8,44 @@ interface WorkoutDetailsProps {
 const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
   const { id } = await params;
 
-  const response = await fetch(
-    `${
-      process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
-    }/LibraryData.json`,
-    {
-      cache: "no-store",
-    }
-  );
+  let libraryData;
 
-  const libraryData = await response.json();
+  try {
+    const response = await fetch(
+      `${
+        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+      }/LibraryData.json`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to load workout data");
+    }
+
+    libraryData = await response.json();
+  } catch (error) {
+    console.error("Workout data error:", error);
+
+    return (
+      <main className="min-h-screen bg-[#0d0f12] text-white flex items-center justify-center px-4">
+        <div className="text-center">
+          <p className="text-[#ccff00] text-sm font-bold uppercase tracking-widest mb-3">
+            FitLog
+          </p>
+
+          <h1 className="text-2xl md:text-3xl font-bold">
+            Unable to load workouts
+          </h1>
+
+          <p className="text-gray-500 mt-2 text-sm">
+            Something went wrong while loading the workout data.
+          </p>
+        </div>
+      </main>
+    );
+  }
 
   const workout = libraryData.find(
     (item: { id: number }) => item.id === Number(id)
@@ -35,13 +61,10 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
 
   return (
     <main className="bg-[#0d0f12] text-white min-h-screen">
-
-      
       <section className="max-w-6xl mx-auto px-4 py-8">
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-          {/* left side */}
+          {/* Left side */}
           <div>
             <Image
               src={workout.image}
@@ -52,11 +75,10 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
             />
           </div>
 
-
-          {/* right side  */}
+          {/* Right side */}
           <div>
 
-            
+            {/* Title */}
             <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">
               {workout.name}
             </h1>
@@ -65,7 +87,6 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
             <p className="text-gray-400 mt-3 leading-relaxed">
               {workout.description}
             </p>
-
 
             {/* Muscle Groups */}
             <div className="flex flex-wrap gap-2 mt-5">
@@ -79,11 +100,10 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
               ))}
             </div>
 
-
-            
+            {/* Workout Information */}
             <div className="bg-[#15181e] border border-[#252932] rounded-xl mt-5 overflow-hidden">
 
-            
+              {/* Equipment */}
               <div className="flex justify-between items-center px-5 py-4 border-b border-[#252932]">
                 <span className="text-xs text-gray-400 font-semibold">
                   EQUIPMENT
@@ -94,8 +114,7 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
                 </span>
               </div>
 
-
-              
+              {/* Difficulty */}
               <div className="flex justify-between items-center px-5 py-4 border-b border-[#252932]">
                 <span className="text-xs text-gray-400 font-semibold">
                   DIFFICULTY
@@ -106,8 +125,7 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
                 </span>
               </div>
 
-
-              
+              {/* Sets */}
               <div className="flex justify-between items-center px-5 py-4 border-b border-[#252932]">
                 <span className="text-xs text-gray-400 font-semibold">
                   SETS
@@ -118,8 +136,7 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
                 </span>
               </div>
 
-
-              
+              {/* Reps */}
               <div className="flex justify-between items-center px-5 py-4 border-b border-[#252932]">
                 <span className="text-xs text-gray-400 font-semibold">
                   REPS
@@ -130,8 +147,7 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
                 </span>
               </div>
 
-
-              
+              {/* Duration */}
               <div className="flex justify-between items-center px-5 py-4 border-b border-[#252932]">
                 <span className="text-xs text-gray-400 font-semibold">
                   DURATION
@@ -142,8 +158,7 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
                 </span>
               </div>
 
-
-              
+              {/* Calories */}
               <div className="flex justify-between items-center px-5 py-4 border-b border-[#252932]">
                 <span className="text-xs text-gray-400 font-semibold">
                   CALORIES
@@ -154,8 +169,7 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
                 </span>
               </div>
 
-
-             
+              {/* Rating */}
               <div className="flex justify-between items-center px-5 py-4">
                 <span className="text-xs text-gray-400 font-semibold">
                   RATING
@@ -168,8 +182,7 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
 
             </div>
 
-
-            {/* INSTRUCTIONS */}
+            {/* Instructions */}
             <div className="mt-7">
 
               <h2 className="text-lg font-bold mb-4">
@@ -197,16 +210,12 @@ const WorkoutDetails = async ({ params }: WorkoutDetailsProps) => {
 
             </div>
 
-
-            {/* BUTTONS */}
+            {/* Buttons */}
             <WorkoutActions workout={workout} />
 
           </div>
-
         </div>
-
       </section>
-
     </main>
   );
 };

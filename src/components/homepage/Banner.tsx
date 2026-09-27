@@ -26,10 +26,13 @@ const Banner = () => {
               into today's plan, and watch the week's work add up.
             </p>
 
-            <button className="mt-6 bg-[#ccff00] text-black px-5 py-3 rounded-md text-xs md:text-sm font-bold hover:bg-[#b8e600] transition">
+            <a
+               href="#library"
+              className="inline-block mt-6 bg-[#ccff00] text-black px-5 py-3 rounded-md text-xs md:text-sm font-bold hover:bg-[#b8e600] transition"
+               >
               BROWSE WORKOUTS
-            </button>
-
+            </a>
+            
           </div>
 
           
